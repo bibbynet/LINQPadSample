@@ -21,6 +21,11 @@ void Main()
 	int permissionNumbers = 7;
 	var permissionObjects = Enum.ToObject(typeof(Permissions) , permissionNumbers);
 	permissionObjects.Dump();
+	permissionObjects
+	.ToString()
+	.Split(',')
+	.Select(a=>new { Key =a,Value =(int)Enum.Parse(typeof(Permissions),a) })
+	.Dump();
 	
 	"show permission to whether include Delete tag".ToTitle();
 	permission.HasFlag(Permissions.Delete).Dump();
